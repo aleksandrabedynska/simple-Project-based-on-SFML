@@ -18,7 +18,7 @@ MovingObj::MovingObj(float x, float y)
 	height = 20;
 	rect.setSize(Vector2f(width, height));
 	rect.setPosition(position.x, position.y);
-	rect.setFillColor(Color::Red);
+	rect.setFillColor(Color::Magenta);
 }
 
 void MovingObj::setPosition(int x, int y)
@@ -114,15 +114,18 @@ void MovingObj::changeStatus()
 	rect.setFillColor(Color::Black);
 
 }
-void MovingObj::gotShot()
+bool MovingObj::gotShot()
 {
+	// TO DO intersection
+	
 	isShot = true;
 	setBearing(position);
 	direction.x = 0;
 	direction.y = 0;
 	speed = 0.0f;
-
+	rect.setFillColor(Color::Red);
 	
+	return false;
 }
 
 bool MovingObj::isDead()
@@ -132,8 +135,8 @@ bool MovingObj::isDead()
 	else
 		return false;
 }
-
-void MovingObj::swap(MovingObj o1, MovingObj o2)
+/*
+void MovingObj::swap(MovingObj o2)
 {
 	MovingObj temp(0,0);
 	temp.direction = o2.direction;
@@ -146,11 +149,30 @@ void MovingObj::swap(MovingObj o1, MovingObj o2)
 	temp.width = o2.width;
 	temp.height = o2.height;
 
+	o2.direction=direction;
+	o2.position=position;
+	o2.speed = speed;
+	o2.isShot = isShot;
+	o2.hasGold = hasGold;
+	o2.home = home;
+	o2.rect = rect;
+	o2.width = width;
+	o2.height = height; 
+
+	direction = temp.direction;
+	position = temp.position;
+	speed = temp.speed;
+	isShot = temp.isShot;
+	hasGold = temp.hasGold;
+	home = temp.home;
+	rect = temp.rect;
+	width = temp.width;
+	height = temp.height;
 
 
 
 }
-
+*/
 
 
 

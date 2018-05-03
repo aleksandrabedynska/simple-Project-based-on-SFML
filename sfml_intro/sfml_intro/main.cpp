@@ -22,7 +22,7 @@ int main()
 	Target treasure(winWidth - 100, winHeight - 100);
 	
 	vector<MovingObj> enemies;
-	for (int i = 1; i < 10; i++) 
+	for (int i = 0; i < 10; i++) 
 	{
 		MovingObj enemy(rand() % 2000, rand() % 1000);
 		enemy.setHome(enemy.getPosition());
@@ -30,7 +30,10 @@ int main()
 		enemy.setBearing(treasure.getPosition());
 		enemies.push_back(enemy);
 	}
-	
+	for (int i = 0; i < enemies.size(); i++)
+	{
+		cout << "enemy init " << i << endl;
+	}
 
 
 	
@@ -65,19 +68,13 @@ int main()
 		}
 		enemies[2].gotShot();
 
+	/*
 		for (int i = 0; i < enemies.size(); i++)
 		{
-			if (enemies[i].isDead() == true)
-			{
-				int s = enemies.size() - 1;
-			
-
-			}
+			cout << "enemy left " << i << endl;
 		}
-
-
-
-		window.display();
+	*/
+		
 		window.clear(sf::Color(0, 153, 0));
 
 		window.draw(treasure.getShape());

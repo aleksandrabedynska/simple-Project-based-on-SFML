@@ -29,9 +29,10 @@ public:
 	void setHome(vec2f pos);
 	vec2f getHome();
 	void changeStatus();
-	void gotShot();
+	bool gotShot();
 	bool isDead();
-	void swap(MovingObj o1, MovingObj o2);
+	
+	//void swap(MovingObj o2);
 
 	~MovingObj();
 };
